@@ -26,7 +26,7 @@ From: continuumio/miniconda3
 	### Copies Snakefile to /opt/hej and .s3cfg to /opt/s3_cfg
 
 	Snakefile /opt/hej
-	~/.s3cfg /opt/s3_cfg
+	s3cfg /opt/s3_cfg
 
 
 %runscript
