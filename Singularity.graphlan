@@ -13,9 +13,9 @@ From: continuumio/miniconda3
 	conda config --add channels conda-forge
 	conda config --add channels biobakery
 
-	conda install -c biobakery graphlan -y
-	conda install -b bioconda export2graphlan -y
+	conda create -c biobakery -c bioconda -n graphlan graphlan export2graphlan -y
 
+	source activate graphlan
 
 %files
 
