@@ -1,0 +1,24 @@
+Bootstrap: docker
+From: continuumio/miniconda3
+
+
+%post
+	### Sets correct channels and installs graphlan and hclust2 
+
+	PATH=/opt/conda/bin:$PATH
+        export PATH	
+
+	conda config --add channels defaults
+	conda config --add channels bioconda
+	conda config --add channels conda-forge
+	conda config --add channels biobakery
+
+	conda install -c biobakery graphlan -y
+	conda install -b bioconda export2graphlan -y
+
+
+%files
+
+
+%runscript
+	echo "$@"
