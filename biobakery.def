@@ -1,0 +1,33 @@
+Bootstrap: docker
+From: continuumio/miniconda3
+
+
+%post
+	### Sets correct channels and installs metaphlan3, humann3 and strainphlan3
+
+	PATH=/opt/conda/bin:$PATH
+        export PATH	
+
+	conda config --add channels defaults
+	conda config --add channels bioconda
+	conda config --add channels conda-forge
+	conda config --add channel biobakery
+
+	conda create --name biobakery -c bioconda python=3.7 metaphlan 
+	conda activate biobakery
+	conda install -c biobakery humann -y
+
+
+	echo \#\!/bin/bash > /opt/runscript.sh
+	echo source activate snakemake >> /opt/runscript.sh
+	echo \$\@ >> /opt/runscript.sh
+
+%files
+
+
+%runscript
+	### Starts runscript.sh, everything you type after "sing run biobakery.sif" is forwarded to the runscript.
+	### e.g. "sing run biobakery.sif metaphlan" forwards "metaphlan" runscript.sh and executes that command. 
+
+	bash /opt/runscript.sh "$@"
+	echo "$@"
