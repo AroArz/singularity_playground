@@ -13,21 +13,11 @@ From: continuumio/miniconda3
 	conda config --add channels conda-forge
 	conda config --add channels biobakery
 
-	conda create --name biobakery -c bioconda python=3.7 metaphlan 
-	conda activate biobakery
-	conda install -c biobakery humann -y
+	conda install -c bioconda -c biobakery python=3.7 metaphlan humann -y
 
-
-	echo \#\!/bin/bash > /opt/runscript.sh
-	echo source activate snakemake >> /opt/runscript.sh
-	echo \$\@ >> /opt/runscript.sh
 
 %files
 
 
 %runscript
-	### Starts runscript.sh, everything you type after "sing run biobakery.sif" is forwarded to the runscript.
-	### e.g. "sing run biobakery.sif metaphlan" forwards "metaphlan" runscript.sh and executes that command. 
-
-	bash /opt/runscript.sh "$@"
 	echo "$@"
