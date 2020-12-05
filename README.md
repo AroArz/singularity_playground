@@ -1,6 +1,5 @@
 # singularity_playground
-This is a singularity image with miniconda3 as base. It will install snakemake and s3cmd appropriately. To change host base and host bucket please edit snakemake.def. To apply a different snakefile make changes to Snakefile. When changes have been made to respective files, please build a new image to incorporate respective changes.
-
+This is a singularity image with miniconda3 as base. It will install MetaPhlAn3 and HUMAnN3 appropriately. 
 
 ## Building
 Before the doing anything make sure singularity is installed and that you have privileges to run singularity as root.
@@ -9,8 +8,7 @@ To build the image type the following.
 ```bash
 git clone https://github.com/AroArz/singularity_playground 
 cd singularity_playground
-cp ~/.s3cfg s3cfg
-sudo singularity build snakemake.sif snakemake.def
+sudo singularity build biobakery.sif biobakery.def
 ```
 
 ## Testing
