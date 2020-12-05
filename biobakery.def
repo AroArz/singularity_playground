@@ -11,7 +11,7 @@ From: continuumio/miniconda3
 	conda config --add channels defaults
 	conda config --add channels bioconda
 	conda config --add channels conda-forge
-	conda config --add channel biobakery
+	conda config --add channels biobakery
 
 	conda create --name biobakery -c bioconda python=3.7 metaphlan 
 	conda activate biobakery
