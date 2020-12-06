@@ -16,8 +16,4 @@ From: continuumio/miniconda
 	conda install -c biobakery -c bioconda graphlan export2graphlan -y
 
 %runscript
-	### Starts runscript.sh, everything you type after "sing run singularity_playground_graphlan.sif" is forwarded to the runscript.
-	### e.g. "sing run singularity_playground_graphlan.sif hclust2.py" forwards "hclust2.py" to runscript.sh and executes that command. 
-
-	bash /opt/runscript.sh "$@"
 	echo "$@"
