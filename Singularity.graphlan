@@ -1,5 +1,5 @@
 Bootstrap: docker
-From: continuumio/miniconda3
+From: continuumio/miniconda
 
 
 %post
@@ -13,7 +13,6 @@ From: continuumio/miniconda3
 	conda config --add channels conda-forge
 	conda config --add channels biobakery
 
-	conda install python=2.7.8 -y
 	conda install -c biobakery -c bioconda graphlan export2graphlan -y
 
 %runscript
