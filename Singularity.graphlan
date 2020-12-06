@@ -3,7 +3,7 @@ From: continuumio/miniconda3
 
 
 %post
-	### Sets correct channels and installs graphlan and hclust2 to conda environment "graphlan", then activates it. 
+	### Sets correct channels and installs graphlan, hclust2 and export2graphlan to conda environment "graphlan", then activates it. 
 
 	PATH=/opt/conda/bin:$PATH
         export PATH	
@@ -15,10 +15,16 @@ From: continuumio/miniconda3
 
 	conda create -c biobakery -c bioconda -n graphlan graphlan export2graphlan -y
 
-	source activate graphlan
+	### Creates a bash script to activate graphlan, hclust2 and export2graphlan	
 
-%files
+	echo \#\!/bin/bash > /opt/runscript.sh
+	echo source activate graphlan >> /opt/runscript.sh
+	echo \$\@ >> /opt/runscript.sh
 
 
 %runscript
+	### Starts runscript.sh, everything you type after "sing run singularity_playground_graphlan.sif" is forwarded to the runscript.
+	### e.g. "sing run singularity_playground_graphlan.sif hclust2.py" forwards "hclust2.py" to runscript.sh and executes that command. 
+
+	bash /opt/runscript.sh "$@"
 	echo "$@"
