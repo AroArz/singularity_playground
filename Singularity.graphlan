@@ -20,7 +20,7 @@ From: continuumio/miniconda3
 	echo \#\!/bin/bash > /opt/runscript.sh
 	echo source activate graphlan >> /opt/runscript.sh
 	echo \$\@ >> /opt/runscript.sh
-
+	bash /opt/runscript.sh
 
 %runscript
 	### Starts runscript.sh, everything you type after "sing run singularity_playground_graphlan.sif" is forwarded to the runscript.
