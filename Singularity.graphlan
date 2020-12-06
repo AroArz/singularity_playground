@@ -3,7 +3,7 @@ From: continuumio/miniconda3
 
 
 %post
-	### Sets correct channels and installs graphlan and hclust2 
+	### Sets correct channels and installs graphlan and hclust2 to conda environment "graphlan", then activates it. 
 
 	PATH=/opt/conda/bin:$PATH
         export PATH	
@@ -15,7 +15,7 @@ From: continuumio/miniconda3
 
 	conda create -c biobakery -c bioconda -n graphlan graphlan export2graphlan -y
 
-	source activate graphlan
+	conda activate graphlan
 
 %files
 
