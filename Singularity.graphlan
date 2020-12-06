@@ -15,6 +15,7 @@ From: continuumio/miniconda3
 
 	conda create -c biobakery -c bioconda -n graphlan graphlan export2graphlan -y
 
+	source activate graphlan
 
 %files
 
