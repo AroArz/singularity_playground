@@ -13,14 +13,7 @@ From: continuumio/miniconda3
 	conda config --add channels conda-forge
 	conda config --add channels biobakery
 
-	conda create -c biobakery -c bioconda -n graphlan graphlan export2graphlan -y
-
-	### Creates a bash script to activate graphlan, hclust2 and export2graphlan	
-
-	echo \#\!/bin/bash > /opt/runscript.sh
-	echo source activate graphlan >> /opt/runscript.sh
-	echo \$\@ >> /opt/runscript.sh
-	bash /opt/runscript.sh
+	conda install -c biobakery -c bioconda python=2.7 graphlan export2graphlan -y
 
 %runscript
 	### Starts runscript.sh, everything you type after "sing run singularity_playground_graphlan.sif" is forwarded to the runscript.
