@@ -2,12 +2,6 @@ Bootstrap: docker
 From: continuumio/miniconda
 
 
-%files
-	graphlan.yaml
-
-%environment
-	echo "source /opt/conda/etc/profile.d/conda.sh" >> $SINGULARITY_ENVIRONMENT
-	echo "conda activate graphlan" >> $SINGULARITY_ENVIRONMENT
 
 %post
         ### Installs graphlan, hclust2 and export2graphlan to conda environment "graphlan", then activates it.
@@ -15,7 +9,8 @@ From: continuumio/miniconda
         PATH=/opt/conda/bin:$PATH
         export PATH
 
-	conda env create -f graphlan.yaml --force
+	pip install graphlan
+	pip install export2graphlan		
 
 %runscript
         echo "$@"
