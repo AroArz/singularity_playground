@@ -5,6 +5,10 @@ From: continuumio/miniconda
 %files
 	graphlan.yaml
 
+%environment
+	echo "source /opt/conda/etc/profile.d/conda.sh" >> $SINGULARITY_ENVIRONMENT
+	echo "conda activate graphlan" >> $SINGULARITY_ENVIRONMENT
+
 %post
         ### Installs graphlan, hclust2 and export2graphlan to conda environment "graphlan", then activates it.
 
