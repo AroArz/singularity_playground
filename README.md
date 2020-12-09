@@ -1,3 +1,5 @@
+[![https://www.singularity-hub.org/static/img/hosted-singularity--hub-%23e32929.svg](https://www.singularity-hub.org/static/img/hosted-singularity--hub-%23e32929.svg)](https://singularity-hub.org/collections/4903)
+
 # singularity_playground
 This is a singularity image with miniconda3 as base. It will install GraphlAn and hclust2 appropriately. 
 
