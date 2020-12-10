@@ -16,6 +16,7 @@ From: continuumio/miniconda3
 	conda install -c bioconda -c biobakery python=3.7 metaphlan humann krona=2.7.1 -y
 
 
+	humann_databases --download utility_mapping full /opt/humann --update-config yes
 %files
 
 
